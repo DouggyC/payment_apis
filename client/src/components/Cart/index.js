@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import Table from "../Table";
+// import Table from "../Table";
 import PayWithPayPal from "../PayPal";
 import { GlobalContext } from "../../context/GlobalState";
 import Checkout from '../Checkout'
 
 const Cart = () => {
-  const { total, tax, cart } = useContext(GlobalContext);
+  const { total, cart } = useContext(GlobalContext);
 
   return (
     <div className="row">

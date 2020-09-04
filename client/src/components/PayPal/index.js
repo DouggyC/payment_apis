@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 
 import { PayPalButton } from "react-paypal-button-v2";
 
 const PayWithPayPal = () => {
-  const [paidFor, setPaidFor] = useState(false);
-  const [error, setError] = useState(null);
-  const paypalRef = useRef();
+  // const [paidFor, setPaidFor] = useState(false);
+  // const [error, setError] = useState(null);
+  // const paypalRef = useRef();
 
   const { cart, total } = useContext(GlobalContext)
 

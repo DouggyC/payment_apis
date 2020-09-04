@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { GlobalContext } from "../../context/GlobalState";
+
 import "./card.css";
 
 const Checkout = () => {

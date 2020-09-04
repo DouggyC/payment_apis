@@ -4,6 +4,11 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // const { createStripeCheckout } = require("./checkout");
 const createStripeCheckoutSession = require("./checkout");
 
@@ -13,7 +18,7 @@ app.use(express.json());
 app.use(cors({ origin: true }));
 
 app.post("/create-checkout-session", async (req, res) => {
-  res.set("Authorization", "Bearer sk_test_TGloulRa60xYE12v5PpMUwqD");
+  res.set("Authorization", `Bearer ${process.env.STRIPE_SECRET_KEY}`);
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -36,9 +41,5 @@ app.post("/checkouts", async (req, res) => {
     console.error(err);
   }
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 app.listen(PORT, () => console.log(`Server Running on PORT: ${PORT}`));
