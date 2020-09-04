@@ -1,6 +1,8 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
+
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 // const { createStripeCheckout } = require("./checkout");
 const createStripeCheckoutSession = require("./checkout");
@@ -17,8 +19,8 @@ app.post("/create-checkout-session", async (req, res) => {
     payment_method_types: ["card"],
     line_items: req.body.line_items,
     mode: "payment",
-    success_url: "https://localhost:3333/success.html",
-    cancel_url: "https://localhost:3333/cancel.html",
+    success_url: `https://localhost:${PORT}/success.html`,
+    cancel_url: `https://localhost:${PORT}/cancel.html`,
   });
 
   return res.json({
@@ -35,4 +37,8 @@ app.post("/checkouts", async (req, res) => {
   }
 });
 
-app.listen(3333, () => console.log(`Server Running on PORT: ${3333}`));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+app.listen(PORT, () => console.log(`Server Running on PORT: ${PORT}`));
