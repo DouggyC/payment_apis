@@ -8,6 +8,7 @@ const initialState = {
   products: products,
   count: 0,
   total: 0,
+  tax: 0,
   cart: [],
 };
 
@@ -27,12 +28,15 @@ export const GlobalProvider = ({ children }) => {
     });
   };
 
+
+
   return (
     <GlobalContext.Provider
       value={{
         count: state.count,
         total: state.total,
         cart: state.cart,
+        tax: state.tax,
         products: state.products,
         addToCart
       }}

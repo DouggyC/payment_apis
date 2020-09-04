@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 
 const Card = ({ product }) => {
-  const { addToCart } = useContext(GlobalContext)
+  const { addToCart } = useContext(GlobalContext);
   const { name, price, description, image } = product;
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div
+      className="card"
+      style={{ width: "18rem", backgroundColor: "transparent" }}
+    >
       <img className="card-img-top" src={image} alt="" />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
@@ -16,14 +19,16 @@ const Card = ({ product }) => {
             <button
               type="button"
               className="btn btn-info"
-              onClick={e => addToCart({
-                name,
-                price
-              })}
+              onClick={e =>
+                addToCart({
+                  name,
+                  price,
+                })
+              }
             >
               Add to cart
             </button>
-            <h4>${price}</h4>
+            <h4 style={{ color: "navajowhite" }}>${price}</h4>
           </div>
         </div>
       </div>

@@ -5,15 +5,16 @@ import { GlobalContext } from "../../context/GlobalState";
 import Checkout from '../Checkout'
 
 const Cart = () => {
-  const { total, cart } = useContext(GlobalContext);
-
-  
+  const { total, tax, cart } = useContext(GlobalContext);
 
   return (
     <div className="row">
       <div className="col">
-        <h4>Items:{cart.length}</h4>
-        <h4>Total:${total}</h4>
+        <h6>Number of Items: {cart.length}</h6>
+        {/* <h6>Tax (10%): ${tax}</h6> */}
+        <hr/>
+        {console.log(cart)}
+        <h4>Total: ${total}</h4>
       </div>
       <div className="col">
         <PayWithPayPal />

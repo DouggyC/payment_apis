@@ -5,16 +5,16 @@ import App from "./App";
 
 import { GlobalProvider } from "./context/GlobalState";
 
-import { Elements } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK)
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalProvider>
       <Elements stripe={stripePromise}>
-      <App />
+        <App />
       </Elements>
     </GlobalProvider>
   </React.StrictMode>,
