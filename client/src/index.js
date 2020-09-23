@@ -5,10 +5,11 @@ import App from "./App";
 
 import { GlobalProvider } from "./context/GlobalState";
 
+// Stripe hook elements
 import { Elements } from "@stripe/react-stripe-js";
+// add/loads stripe script
 import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+export const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
 
 ReactDOM.render(
   <React.StrictMode>

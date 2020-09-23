@@ -11,9 +11,9 @@ Tech Stack:
 <br>
 
 ## Test PayPal with:
-email: `zispadudre@enayu.com`
+email: `femexeg602@mail7d.com`
 
-pw: `test12345`
+pw: `test1290`
 <hr>
 <br>
 
